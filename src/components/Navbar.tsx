@@ -11,10 +11,12 @@ const NavLinks = (props: INavLinks) => {
 export default function Navbar() {
   return (
     <div className="navbar-component-container">
+      <Link to="/">
       <div className="navbar-brand-container">
         <Logo/>
-        <Link to="/">tesa</Link>
+        <p>tesa tesa</p>
       </div>
+      </Link>
       <div className="navbar-links-container">
         {routes.map((route, i) => {
           return <NavLinks path={route.path} name={route.name} />;

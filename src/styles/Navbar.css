@@ -14,10 +14,9 @@
 
 .navbar-brand-container svg{
     fill: #8E3200;
-    
 }
 
-.navbar-brand-container a{
+.navbar-brand-container p{
     font-family: 'IM Fell DW Pica', serif;
     font-size: 1.5rem;
 }
