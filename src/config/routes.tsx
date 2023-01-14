@@ -1,16 +1,27 @@
 import Home from "../pages/Home"
 import Products from "../pages/Products"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHouseChimneyWindow, faBagShopping, faMessage } from "@fortawesome/free-solid-svg-icons"
+import Contact from "../pages/Contact"
 
 const routes = [
     {
-        name:'inicio',
+        name:'Inicio',
         path:'/',
-        component:<Home/>
+        component:<Home/>,
+        icon: <FontAwesomeIcon icon={faHouseChimneyWindow} />
     },
     {
-        name:'productos',
+        name:'Productos',
         path:'/buy',
-        component:<Products/>
+        component:<Products/>,
+        icon: <FontAwesomeIcon icon={faBagShopping} />
+    },
+    {
+        name:'Contacto',
+        path:'/contact',
+        component:<Contact/>,
+        icon: <FontAwesomeIcon icon={faMessage} />
     }
 ]
 

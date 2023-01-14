@@ -1,22 +1,25 @@
 .navbar-component-container{
-    display: flex;
-    justify-content: space-around;
     padding: 1em 2em;
-    background-color: #FFEBC1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
 
 .navbar-component-container div {
     display: flex;
     align-items: center;
-    gap: 20px;
     color: #8E3200;
+    gap: 20px;
 }
 
 .navbar-brand-container svg{
     fill: #8E3200;
 }
 
-.navbar-brand-container p{
-    font-family: 'IM Fell DW Pica', serif;
-    font-size: 1.5rem;
+.navbar-links-container{
+    font-size: 1.2rem;
+}
+
+.navbar-media-container{
+    font-size: 1.8rem;
 }
