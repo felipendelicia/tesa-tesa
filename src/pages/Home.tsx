@@ -1,9 +1,7 @@
-import Navegation from "../components/Navegation";
-
 export default function Home() {
   return (
     <div>
-      <Navegation/>
+      Home
     </div>
   )
 }

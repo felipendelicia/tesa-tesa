@@ -9,6 +9,7 @@ import {
   SocialMedia,
   SocialMediaContainer,
 } from "./components";
+import MobilePages from "./MobilePages";
 
 export default function Navegation() {
   return (
@@ -34,6 +35,7 @@ export default function Navegation() {
           );
         })}
       </SocialMediaContainer>
+      <MobilePages/>
     </Container>
   );
 }
