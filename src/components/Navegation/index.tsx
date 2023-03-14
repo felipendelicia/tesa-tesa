@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import routes from "../../config/routes";
 import socialmedia from "../../config/socialmedia";
 import {
@@ -12,10 +13,25 @@ import {
 import MobilePages from "./MobilePages";
 
 export default function Navegation() {
+
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 0) setIsScrolled(true)
+    else setIsScrolled(false)
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  })
+
   return (
-    <Container>
+    <Container isScrolled={isScrolled}>
       <LogoContainer to='/'>
-        <Logo src="./logo.svg" />
+        <Logo src="./logo.svg" alt='tesa tesa'/>
       </LogoContainer>
       <PagesContainer>
         {routes.map((route, i) => {

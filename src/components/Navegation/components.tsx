@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import theme from "../../config/theme";
+import { NavegationContainerProps } from "./types";
 
-export const Container = styled.nav`
+export const Container = styled.nav<NavegationContainerProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
+  color: ${theme.black};
+  border-radius: 0 0 ${theme.borderRadius} ${theme.borderRadius};
+  background-color: ${props => props.isScrolled ? theme.grey : null};
   justify-content: space-around;
   align-items: center;
-  padding: 1em 0;
+  padding: 10px 0;
+  transition: background-color 0.5s ease-out;
   @media screen and (max-width: 768px){
     justify-content: space-between;
-    padding: 1em 2em;
+    padding: 10px 2em;
   }
 `;
 
@@ -27,7 +36,12 @@ export const PagesContainer = styled.div`
   }
 `;
 
-export const Page = styled(Link)``;
+export const Page = styled(Link)`
+  transition: transform 0.1s ease-out;
+  &:hover {
+    transform: translateY(3px);
+  }
+`;
 
 export const SocialMediaContainer = styled.div`
   display: flex;
@@ -38,11 +52,16 @@ export const SocialMediaContainer = styled.div`
 `;
 
 export const SocialMedia = styled.a`
-    font-size: 1.5em;
+  font-size: 1.5em;
+  transition: transform 0.05s ease-out;
+  &:hover {
+    transform: translateY(1px);
+  }
 `;
 
 export const MobileIcon = styled.p`
   font-size: 1.5em;
+  color: ${theme.black};
   @media screen and (min-width: 768px){
     display: none;
   }
@@ -53,8 +72,8 @@ export const MobileNavegationContainer = styled.div`
   top: 0;
   right:0;
   width: 100%;
-  background-color: #000;
-  color: #fff;
+  background-color: ${theme.black};
+  color: ${theme.white};
   padding: 2em 1em;
   display: flex;
   flex-direction: column;
