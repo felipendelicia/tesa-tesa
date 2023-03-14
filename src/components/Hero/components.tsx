@@ -10,6 +10,11 @@ export const Container = styled.div`
     grid-template-columns: 50% 50%;
     align-items: center;
     justify-items: center;
+    @media screen and (max-width: 1024px){
+        display: flex;
+        flex-direction: column-reverse;
+        padding-bottom: 50px;
+    }
 `
 
 export const Image = styled.img`

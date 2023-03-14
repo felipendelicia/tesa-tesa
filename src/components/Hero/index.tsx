@@ -10,7 +10,7 @@ export default function Hero() {
         <Paragraph>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi totam praesentium aliquid id quasi iure alias omnis voluptate, ab inventore velit nemo repellat nulla nihil optio. Consequatur fugit temporibus quia.</Paragraph>
         <LinkButton to='/buy'><FontAwesomeIcon icon={faAngleRight}/> Ver productos</LinkButton>
       </Text>
-      <Image src="./assets/images/hero.jpg"/>
+      <Image src="./assets/images/hero.jpg" alt="hero"/>
     </Container>
   )
 }
