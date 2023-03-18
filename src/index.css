@@ -6,9 +6,23 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', serif;
+    animation-name: appearAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
 }
 
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+@keyframes appearAnimation  {
+    from {
+        margin-bottom: 20px;
+        opacity: 0;
+    }
+    to {
+        margin-bottom: 0;
+        opacity: 1;
+    }
 }
