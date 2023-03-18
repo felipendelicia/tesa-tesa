@@ -50,5 +50,8 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
     "styled-components": "^5.3.8"
-  }
+  },
+  "dotenv": {
+    "path": "./.env"
+  }  
 }
