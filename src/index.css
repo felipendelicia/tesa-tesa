@@ -16,8 +16,10 @@ a {
     text-decoration: inherit;
 }
 
-.pepe {
-    margin-top: 60px;
+input {
+    outline: inherit;
+    border: inherit;
+    background-color: inherit;
 }
 
 @keyframes appearAnimation  {

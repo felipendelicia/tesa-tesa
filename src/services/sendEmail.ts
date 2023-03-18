@@ -1,10 +1,12 @@
 import axios from 'axios'
 
-function sendEmail(to:string, subject:string, body:string){
+type IFromInfo = {name: string, email: string}
+
+function sendEmail(from:IFromInfo, body:string){
     const data = {
         sender: {
-            name: 'Luca Delicia',
-            email: to
+            name: from.name,
+            email: from.email
         },
         to: [
             {
@@ -12,7 +14,7 @@ function sendEmail(to:string, subject:string, body:string){
                 name: 'Felipe Delicia'
             }
         ],
-        subject: subject,
+        subject: 'tesa-tesa contact email',
         htmlContent: body
     }
     axios.post('https://api.sendinblue.com/v3/smtp/email', data, {
