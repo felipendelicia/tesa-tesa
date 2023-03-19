@@ -45,4 +45,5 @@ export const LinkButton = styled(Link)`
     border-radius: ${theme.borderRadius};
     color: ${theme.white};
     background-color: ${theme.black};
+    font-size: 1em;
 `

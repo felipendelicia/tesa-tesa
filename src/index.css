@@ -16,7 +16,7 @@ a {
     text-decoration: inherit;
 }
 
-input {
+input, textarea, button {
     outline: inherit;
     border: inherit;
     background-color: inherit;
