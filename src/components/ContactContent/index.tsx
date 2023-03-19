@@ -1,9 +1,10 @@
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import socialmedia from "../../config/socialmedia";
 import sendEmail from "../../services/sendEmail";
 import Input from "../Input/index";
+import Message from "../Message";
 import {
   BottomBar,
   Contact,
@@ -20,19 +21,45 @@ export default function ContactContent() {
   const emailRef = useRef<HTMLInputElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
+  const [isMessageVisible, setIsMessageVisible] = useState(false);
+  const [message, setMessage] = useState("");
+
   const clearRefs = () => {
     nameRef.current!.value = "";
     emailRef.current!.value = "";
     textAreaRef.current!.value = "";
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const name: string = nameRef.current?.value!;
     const email: string = emailRef.current?.value!;
     const body: string = textAreaRef.current?.value!;
 
-    sendEmail({ name, email }, body);
-    clearRefs()
+    sendEmail({ name, email }, body)
+      .then((response) => {
+        if (response.status === 201) {
+          clearRefs();
+          setMessage("El mensaje se envio correctamente!");
+          setIsMessageVisible(true);
+          setTimeout(() => {
+            setIsMessageVisible(false);
+          }, 3000);
+        } else {
+          setMessage("Hubo un error al enviar el mensaje.");
+          setIsMessageVisible(true);
+          setTimeout(() => {
+            setIsMessageVisible(false);
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setMessage("Hubo un error al enviar el mensaje.");
+        setIsMessageVisible(true);
+        setTimeout(() => {
+          setIsMessageVisible(false);
+        }, 3000);
+      });
   };
 
   return (
@@ -61,6 +88,7 @@ export default function ContactContent() {
             })}
           </SocialMediaContainer>
         </BottomBar>
+        <Message visibleState={isMessageVisible}>{message}</Message>
       </Contact>
       <Image src="./assets/images/contact.jpg" />
     </Container>
